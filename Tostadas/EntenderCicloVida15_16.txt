@@ -1,0 +1,89 @@
+
+CODIGO A COMPLETAR
+
+Utilizaremos el proyecto HolaMundo2
+
+ 
+
+1.- DIFERENCIAS ENTRE TOSTADAS y DIALOGOS
+Vamos a tener informado al usuario de dónde estamos en cada momento. Para ello se usan dos tipos de mensajes: TOSTADAS y DIALOGOS
+
+ protected void showToast(CharSequence text) {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+protected void showAlert( CharSequence text) {
+         AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(text);
+        alert.setPositiveButton(android.R.string.ok, null);
+        alert.show();
+    }
+
+2.- Indroduce Un recurso Musical en nuestros primeros ejercicios
+HolaMundos..
+
+Crea un directorio (raw) dentro de res (recuerda que los nombres siempre en minusculas, los recursos NO pueden contener  mayúsculas). Copia el fichero desigual.mp3 en el directorio creado. Dentro del método onCreate crea una variable del tipo MediaPlayer de esta manera: 
+
+MediaPlayer miMusica= MediaPlayer.create(getApplicationContext(),R.raw.desigual);
+miMusica.start();
+
+3.- Vamos a añadir un botón de VOLVER, de la segunda actividad  (.Pantalla2)Si ya lo tienes, cambialo a ImageButton
+
+<ImageButton android:id="@+id/BtnImage"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="70dp"
+    android:layout_marginLeft="100dp"
+    android:src="@drawable/imagen_volver" />
+
+Recuerda que debes incluir el recurso de la imagen en el directorio drawable del proyecto (imagenvolver.png)
+
+4.-ESTUDIO DEL CICLO DE VIDA DE UNA APLICACION
+
+a)Tratar de seguir la evolución de la ejecución cuando se pasa de una actividad a otra y entender el PROCESO DEL CICLO DE VIDA. Metodos para agregar en la clase Principal y secundaria
+
+@Override
+ protected void onStart() {
+    super.onStart();
+    Toast.makeText(this,"onStart", Toast.LENGTH_SHORT).show();
+}
+@Override
+protected void onResume() {
+   super.onResume();
+   Toast.makeText(this,"onResume", Toast.LENGTH_SHORT).show();
+}
+@Override
+protected void onPause() {
+   Toast.makeText(this,"onPause", Toast.LENGTH_SHORT).show();
+   super.onPause();
+}
+@Override
+protected void onStop() {
+   super.onStop();
+   Toast.makeText(this,"onStop", Toast.LENGTH_SHORT).show();
+}
+@Override
+protected void onRestart() {
+   super.onRestart();
+   Toast.makeText(this,"onRestart", Toast.LENGTH_SHORT).show();
+ }
+@Override
+protected void onDestroy() {
+   Toast.makeText(this,"onDestroy", Toast.LENGTH_SHORT).show();
+   super.onDestroy();
+}
+
+b) Ahora TRATA DE PENSAR y ENTENDER cúal sería la mejor solución para manejar el recurso musical
+
+a)Comenta la instrucción que hacer comenzar la música en el método onCreate
+//miMusica.start();
+
+b) Piensa en la secuencia que debes usar con los métodos para que la música sólo suene si estamos en la primera pantalla.
+
+miMusica.start(); 
+miMusica.pause();
+miMusica.stop(); 
+

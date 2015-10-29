@@ -1,0 +1,16 @@
+<resources>
+    <!-- primera actividad-->
+    <string name="app_name">HolaMundo2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!--segunda actividad-->
+    <string name="app_name2">HolaMundo</string>
+    <string name="app2_name">DarSaludo</string>
+    <string name="saludo">Prueba de Saludo!</string>
+    <string name="escribe">Introduce TU NOMBRE</string>
+    <string name="pulsar">Pulsa Aqui</string>
+    <string name="action_settings2">Settings</string>
+</resources>
+
+
