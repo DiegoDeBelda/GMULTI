@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="100"
+                    android:layout_height="wrap_content"
+                    android:text="Color 1"
+                    android:textColor="#DF0101"
+                    android:id="@+id/Rojo"
+                    android:layout_column="2" />
+
+                <Button
+                    android:layout_width="100"
+                    android:layout_height="wrap_content"
+                    android:text="Color 2"
+                    android:textColor="#0040FF"
+                    android:id="@+id/Azul"
+                    android:layout_column="5" />
+
+                <Button
+                    android:layout_width="200"
+                    android:layout_height="wrap_content"
+                    android:text="color 3"
+                    android:textColor="#FFFF00"
+                    android:id="@+id/Amarillo"
+                    android:layout_column="8" />
+            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50"
+                    android:text=""
+                    android:background="#000000"
+                    android:id="@+id/myLbl"
+                    android:layout_column="2"
+                    android:layout_span="7" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Borrar"
+                    android:id="@+id/buttonBorrar"
+                    android:layout_column="8" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+</LinearLayout>

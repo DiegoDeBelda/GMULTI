@@ -38,13 +38,13 @@ public class Pantalla2 {
 
 
 
-        Bundle miBundleRecoger = getIntent().getExtras();
+        Bundle  miBundleRecoger = getIntent().getExtras();
         Pizza.setText(miBundleRecoger.getString("Nombre"));
         Base.setText(miBundleRecoger.getInt("Precio"));
         Extra.setText(miBundleRecoger.getInt("Extra"));
         Unidades.setText(miBundleRecoger.getInt("Unidades"));
         Envio.setText(miBundleRecoger.getString("Envio"));
-        CosteFinal.setText(Base.getText()+Extra.getText());
+        CosteFinal.setText(Integer.parseInt(Base.getText().toString()) + Integer.parseInt(Extra.getText().toString()));
 
 
 

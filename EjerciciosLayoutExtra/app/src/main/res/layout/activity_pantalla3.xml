@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sumar"
+            android:id="@+id/suma"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="84dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="127dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restar"
+            android:id="@+id/resta"
+            android:layout_toRightOf="@+id/suma"
+            android:layout_toEndOf="@+id/suma"
+            android:layout_alignBottom="@+id/suma" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="="
+            android:id="@+id/igual"
+            android:layout_marginTop="41dp"
+            android:layout_below="@+id/suma"
+            android:layout_alignLeft="@+id/suma"
+            android:layout_alignStart="@+id/suma" />
+
+        <EditText
+            android:layout_width="200"
+            android:layout_height="25"
+            android:id="@+id/entrada1"
+            android:layout_alignParentTop="true"
+             />
+
+        <EditText
+            android:layout_width="200"
+            android:layout_height="25"
+            android:id="@+id/entrada2"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/entrada1"
+            android:layout_toEndOf="@+id/entrada1" />
+
+        <TextView
+            android:layout_width="200"
+            android:layout_height="25"
+            android:text="0"
+            android:id="@+id/salida"
+            android:layout_above="@+id/resta"
+            android:layout_alignLeft="@+id/suma"
+            android:layout_alignStart="@+id/suma" />
+    </RelativeLayout>
+</LinearLayout>
