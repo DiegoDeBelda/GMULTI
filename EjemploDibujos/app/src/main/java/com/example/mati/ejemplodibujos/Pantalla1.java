@@ -54,7 +54,7 @@ public class Pantalla1 extends AppCompatActivity {
             paleta[2].setColor(Color.BLACK);
 
             for(int j=1; j<300; j+=20 ) {
-
+                //primera forma de dibujar, al lienzo se le dice que dibujar
                 lienzo.drawLine(1, j, 200, j, paleta[j%3]);
 
             }
