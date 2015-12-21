@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DiegoBici</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="tituloAplicacion">Juegaco</string>
+    <string name="Jugar">Jugar</string>
+    <string name="Configurar">Configurar</string>
+    <string name="Acercade">Acerca_de</string>
+    <string name="Salir">Salir</string>
+    <string name="TextoAcercaDe">Esto es un texto lejos de</string>
+</resources>
