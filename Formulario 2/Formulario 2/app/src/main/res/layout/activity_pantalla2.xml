@@ -73,4 +73,22 @@
         android:layout_marginTop="30dp"
         android:layout_gravity="right"
         android:visibility="visible" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:text="Guardar Registro"
+            android:id="@+id/Registrar" />
+
+        <Button
+
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:text="Visualizar Registros"
+            android:id="@+id/Visualizar"/>
+    </LinearLayout>
+
 </LinearLayout>

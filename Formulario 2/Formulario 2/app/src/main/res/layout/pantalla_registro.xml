@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="  Ingrese su usuario"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.19"
+        android:textColor="#10efb4"
+        android:textSize="40dp" />
+
+    <EditText
+        android:layout_width="286dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:text="Usuario"
+        android:layout_gravity="bottom" />
+
+    <EditText
+        android:layout_width="285dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:text="Contraseña"
+        android:password="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <Button
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:text="Registrar"
+            android:id="@+id/button" />
+
+        <Button
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:text="Usuario olvidado"
+            android:id="@+id/button2"
+            android:layout_weight="0.31" />
+    </LinearLayout>
+
+
+</LinearLayout>
