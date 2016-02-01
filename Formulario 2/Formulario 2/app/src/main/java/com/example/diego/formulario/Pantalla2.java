@@ -59,7 +59,7 @@ public class Pantalla2 extends AppCompatActivity {
         viewImagen.setImageResource(img);
 
         Button cargar = (Button)findViewById(R.id.Registrar);
-        destino = new Dest(Zona, Continente, img, ""+precio);
+        destino = new Dest(Zona, Continente, img, ""+precioFinal);
         cargar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
