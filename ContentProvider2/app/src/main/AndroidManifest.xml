@@ -1,11 +1,11 @@
 <manifest
-    package="org.ejemplo.aguilar"
+    package="com.example.mati.contentprovider"
     android:versionCode="1"
     android:versionName="1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-sdk android:minSdkVersion="7"/>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <application>
-        <!--android:icon="@drawable/ic_launcher"-->
         android:label="@string/app_name">
         <activity
             android:name="com.example.mati.contentprovider.EjemploContentProvider"
@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <provider
-            android:name="com.example.mati.contentprovider.UsuariosProvider"
-            android:authorities="org.ejemplo.aguilar.EjemploContentProvider"/>
+            android:name="UsuariosProvider"
+            android:authorities="com.example.mati.contentprovider.ContentProvider"
+            android:exported="true"/>
     </application>
 </manifest>

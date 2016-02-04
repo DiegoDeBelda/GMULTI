@@ -10,8 +10,12 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 public class UsuariosProvider extends ContentProvider {
+
+   static final String authority = "com.example.mati.contentprovider.ContentProvider";
+    static final  String actividad = "usuarios";
+
     //Definición del CONTENT_URI
-    private static final String uri = "content://com.example.mati.EjemploContentProvider/usuarios";
+    private static final String uri ="content://"+ authority + "/" + actividad;
     public static final Uri CONTENT_URI = Uri.parse(uri);
 
     //Clase interna para declarar las columnas
@@ -39,8 +43,8 @@ public class UsuariosProvider extends ContentProvider {
     //de URI, de forma que pueda diferenciarlos y devolvernos su tipo.
     static {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        uriMatcher.addURI("com.example.mati.EjemploContentProvider", "usuarios", USUARIOS);
-        uriMatcher.addURI("com.example.mati.EjemploContentProvider", "usuarios/#", USUARIOS_ID);
+                uriMatcher.addURI(authority, actividad, USUARIOS);
+        uriMatcher.addURI(authority, actividad+"/#", USUARIOS_ID);
     }
 
     @Override
@@ -118,9 +122,9 @@ public class UsuariosProvider extends ContentProvider {
 
         switch(match) {
             case USUARIOS:
-                return "vnd.android.cursor.dir/vnd.aguilar.usuario";
+                return "vnd.android.cursor.dir/vnd."+authority+"/"+actividad;
             case USUARIOS_ID:
-                return "vnd.android.cursor.item/vnd.aguilar.usuario";
+                return "vnd.android.cursor.item/vnd."+authority+"/"+actividad;
             default:
                 return null;
         }
