@@ -27,6 +27,7 @@ public class Pantalla2 extends AppCompatActivity {
         final TextView viewPrecioTotal = (TextView) findViewById(R.id.tpreciototal);
         final TextView viewPeso = (TextView)findViewById(R.id.tpeso);
         final ImageView viewImagen = (ImageView) findViewById(R.id.timagen);
+        final TextView viewUsuario = (TextView)findViewById(R.id.tusuario);
         //final AnalogClock Reloj = (AnalogClock)findViewById(R.id.reloj);
         //final TextView viewPreferencia = (TextView)findViewById(R.id.;
 
@@ -41,6 +42,7 @@ public class Pantalla2 extends AppCompatActivity {
         int Peso = bundle.getInt("Peso");
         double suma = bundle.getDouble("PRECIO TOTAL (Precio + precio extra por tipo de envio");
         String urgencia = bundle.getString("urgencia del envio");
+        String usuario = bundle.getString("Usuario");
 
 
         int img = bundle.getInt("IMAGEN");
@@ -57,6 +59,9 @@ public class Pantalla2 extends AppCompatActivity {
         viewPrecioTotal.setText(String.valueOf("Precio TOTAL: " + precioFinal));
         viewPeso.setText(String.valueOf("Peso del paquete: " + Peso));
         viewImagen.setImageResource(img);
+        viewUsuario.setText(usuario);
+
+
 
         Button cargar = (Button)findViewById(R.id.Registrar);
         destino = new Dest(Zona, Continente, img, ""+precioFinal);
@@ -81,6 +86,11 @@ public class Pantalla2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        if(usuario.equals("Anonimo")){
+            cargar.setVisibility(View.INVISIBLE);
+            ver.setVisibility(View.INVISIBLE);
+        }
 
 
        // Reloj.setVisibility(ImageView.VISIBLE);

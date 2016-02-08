@@ -37,7 +37,14 @@
             android:layout_height="match_parent"
             android:id="@+id/imageView"
 
-            android:background="@drawable/logo" />
+            android:background="@drawable/logo"
+            android:paddingRight="10dp" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="      Usuario: "
+            android:id="@+id/nombreUsuario"/>
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"

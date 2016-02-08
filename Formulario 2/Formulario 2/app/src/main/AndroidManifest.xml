@@ -19,6 +19,7 @@
         <activity android:name=".Pantalla2"></activity>
         <activity android:name=".pantalla3"></activity>
         <activity android:name=".Dibujar"></activity>
+        <activity android:name=".PantallaLogin"></activity>
     </application>
 
 </manifest>

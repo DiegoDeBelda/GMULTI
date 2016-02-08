@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     Button calcular;
 
+
     String Zon;
     String Cont;
     int img;
@@ -52,6 +53,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final TextView nombreUsuario=(TextView)findViewById(R.id.nombreUsuario);
+
+        Bundle bundle;
+        if(( bundle = getIntent().getExtras())==null){
+            Toast.makeText(MainActivity.this, "No estas inciado como ningun usuario, puede hacerlo desde menu -> Registrar, para acceder a nuevas funciones", Toast.LENGTH_SHORT).show();
+            nombreUsuario.setText("Anonimo");
+        }
+        else{
+            bundle = getIntent().getExtras();
+            String nombreU = bundle.getString("Nombre");
+            nombreUsuario.setText(nombreU);
+        }
+
+
 
         cajaRegalo = (CheckBox) findViewById(R.id.cajaRegalo);
         conTarjetaDedicada = (CheckBox) findViewById(R.id.conTarjetaDedicada);
@@ -136,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     bundle.putDouble("PRECIO TOTAL (Precio + precio extra por tipo de envio", pr + precioExtra);
                     bundle.putString("urgencia del envio", Urgencia);
                     bundle.putInt("IMAGEN", img);
+                    bundle.putString("Usuario",nombreUsuario.getText().toString());
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }
@@ -157,6 +174,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.Opc2:
                 Toast.makeText(getApplicationContext(), "Diego de Belda Calvo", Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.Opc3:
+                Intent activityIntent2 = new Intent(this, PantallaLogin.class);
+                startActivity(activityIntent2);
+            case R.id.Opc4:
+
             default:
                 return super.onOptionsItemSelected(item);
         }
