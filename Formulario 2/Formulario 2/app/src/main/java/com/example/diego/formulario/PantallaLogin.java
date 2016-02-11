@@ -33,6 +33,7 @@ public class PantallaLogin extends AppCompatActivity {
         usuario= (EditText)findViewById(R.id.editText);
         contraseña = (EditText)findViewById(R.id.editText2);
         final TextView mensajeError =(TextView)findViewById(R.id.textView3);
+        final TextView mensajeErrorDos = (TextView)findViewById(R.id.textView4);
 
 
 
@@ -102,6 +103,13 @@ public class PantallaLogin extends AppCompatActivity {
             }
         });
 
+        Bundle bundle = getIntent().getExtras();
+        String comprobar = bundle.getString("Usuario");
+        if(comprobar.equals("Anonimo")==false){
+            mensajeErrorDos.setText(mensajeErrorDos.getText().toString()+" como "+comprobar);
+            IniciarSesion.setVisibility(View.INVISIBLE);
+            mensajeErrorDos.setVisibility(View.VISIBLE);
+        }
 
 
 

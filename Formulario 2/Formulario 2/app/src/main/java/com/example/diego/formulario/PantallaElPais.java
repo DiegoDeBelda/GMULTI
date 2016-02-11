@@ -1,4 +1,8 @@
-package com.example.mati.leerelpais;
+package com.example.diego.formulario;
+
+/**
+ * Created by mati on 11/02/16.
+ */
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -25,7 +29,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class MainActivity extends AppCompatActivity {
+public class PantallaElPais extends AppCompatActivity {
 
     private static final String TAG="Http conexion";
     private Button boton;
@@ -33,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.pantalla_el_pais);
         boton = (Button) findViewById(R.id.boton);
         texto = (TextView) findViewById(R.id.texto);
 
@@ -66,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         if (info != null)
                             //for (int i = 0; i <info.length; i++)
                             if (info.getState() == NetworkInfo.State.CONNECTED) {
-                                Toast.makeText(MainActivity.this, "Internet is connected",
+                                Toast.makeText(PantallaElPais.this, "Internet is connected",
                                         Toast.LENGTH_SHORT).show();
                             }
                     }
@@ -75,13 +79,13 @@ public class MainActivity extends AppCompatActivity {
                     if (info != null)
                         for (int i = 0; i <info.length; i++)
                             if (info[i].getState() == NetworkInfo.State.CONNECTED) {
-                                Toast.makeText(MainActivity.this, "Internet is connected",
+                                Toast.makeText(PantallaElPais.this, "Internet is connected",
                                         Toast.LENGTH_SHORT).show();
                             }
                 }
             }
             else{
-                Toast.makeText(MainActivity.this, "not conencted to internet",
+                Toast.makeText(PantallaElPais.this, "not conencted to internet",
                         Toast.LENGTH_SHORT).show();
             }
         }
@@ -142,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
             return salida;
         }
         protected void onProgressUpdate(String... pasos) {
-            Toast.makeText(MainActivity.this, pasos[0], Toast.LENGTH_SHORT).show();
+            Toast.makeText(PantallaElPais.this, pasos[0], Toast.LENGTH_SHORT).show();
             texto.append(pasos[0]);
         }
 

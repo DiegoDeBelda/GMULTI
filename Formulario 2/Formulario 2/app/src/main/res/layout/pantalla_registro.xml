@@ -59,5 +59,14 @@
         android:textColor="#f90808"
         android:visibility="invisible" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_weight="0.19"
+        android:text="Ya has iniciado sesion."
+        android:textColor="#f90808"
+        android:visibility="invisible" />
+
 
 </LinearLayout>

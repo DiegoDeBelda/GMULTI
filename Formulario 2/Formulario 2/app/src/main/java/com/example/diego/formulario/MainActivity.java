@@ -1,6 +1,8 @@
 package com.example.diego.formulario;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,44 +24,61 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    //objetos utilizables en la primera pantalla
     CheckBox cajaRegalo, conTarjetaDedicada;
     EditText Peso;
     Spinner miSpinner;
     RadioGroup radioGroup;
     Button calcular;
 
-
+    //variables usadas para pasar datos a la segunda pantalla
     String Zon;
     String Cont;
     int img;
     double pr;
-
     double precioExtra;
-
     String Urgencia;
     String preferenciasDelEnvio;
-
+    TextView nombreUsuario=null;
+    //array con objetos de tipo Dest para el spinner
     private Dest[] objetosSpinner = new Dest[]{
             new Dest("A","Asia/Oceania",R.drawable.asia, "30"),
             new Dest("B","America/Africa",R.drawable.america,"20"),
             new Dest("C","Europa",R.drawable.europa,"10")
     };
-    /*private Dest[] objetosSpinner = new Dest[]{
-            new Dest("A","Asia/Oceania", 30),
-            new Dest("B","America/Africa",20),
-            new Dest("C","Europa",10)
-    };
-*/
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView nombreUsuario=(TextView)findViewById(R.id.nombreUsuario);
+        //este textview indica el usuario activo y se muestra junto al logo de la empresa
+        nombreUsuario=(TextView)findViewById(R.id.nombreUsuario);
 
+        //con este if else y este bundle compruebo si hay una sesion iniciada y saco un mensaje.
         Bundle bundle;
         if(( bundle = getIntent().getExtras())==null){
-            Toast.makeText(MainActivity.this, "No estas inciado como ningun usuario, puede hacerlo desde menu -> Registrar, para acceder a nuevas funciones", Toast.LENGTH_SHORT).show();
-            nombreUsuario.setText("Anonimo");
+            /*Toast.makeText(MainActivity.this, "No estas inciado como ningun usuario, puede hacerlo desde menu -> Registrar, para acceder a nuevas funciones", Toast.LENGTH_SHORT).show();
+            nombreUsuario.setText("Anonimo");*/
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Sesion no iniciada")
+                    .setMessage("No estas inciado como ningun usuario, puede hacerlo desde menu,Registrar, para acceder a nuevas funciones")
+                    .setPositiveButton("iniciar sesion", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            Intent activityIntent2 = new Intent(MainActivity.this, PantallaLogin.class);
+                            startActivity(activityIntent2);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            nombreUsuario.setText("Anonimo");
+
+                            Toast.makeText(MainActivity.this, "Iniciado como Anonimo", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
         }
         else{
             bundle = getIntent().getExtras();
@@ -175,10 +194,20 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Diego de Belda Calvo", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.Opc3:
+                Bundle bundle = new Bundle();
+                String usuarioyainiciado = nombreUsuario.getText().toString();
+                bundle.putString("Usuario", usuarioyainiciado);
                 Intent activityIntent2 = new Intent(this, PantallaLogin.class);
+                activityIntent2.putExtras(bundle);
                 startActivity(activityIntent2);
+                return true;
             case R.id.Opc4:
-
+                nombreUsuario.setText("Anonimo");
+                return true;
+            case R.id.Opc5:
+                Intent activityIntent3 = new Intent(this, PantallaElPais.class);
+                startActivity(activityIntent3);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
