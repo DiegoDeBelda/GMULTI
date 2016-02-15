@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
     //Cadena con la sentencia SQL que permite crear la tabla Clientes
-    String cadSQL = "CREATE TABLE Destinos (id INTEGER PRIMARY KEY, zona TEXT,continente TEXT, imagen INTEGER, precio TEXT )";
-    String cadSQLUsuarios = "CREATE TABLE Usuarios (id INTEGER PRIMARY KEY, nombre TEXT, password TEXT)";
+    String cadSQL = "CREATE TABLE Destinos if not EXISTS (id INTEGER PRIMARY KEY, zona TEXT,continente TEXT, imagen INTEGER, precio TEXT )";
+    String cadSQLUsuarios = "CREATE TABLE Usuarios if not EXISTS (id INTEGER PRIMARY KEY, nombre TEXT, password TEXT)";
     String cadListar = "SELECT * FROM Destinos";
     String cadListarUsuarios = "SELECT * FROM Usuarios";
     //SQLiteDatabase db;
