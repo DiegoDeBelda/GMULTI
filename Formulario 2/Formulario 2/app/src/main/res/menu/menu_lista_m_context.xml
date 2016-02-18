@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/delete" android:title="Eliminar Registro"
+        android:text="Eliminar Registro"></item>
+    <item android:id="@+id/update" android:title="Editar Registro"
+        android:text="Editar Registro"></item>
+</menu>

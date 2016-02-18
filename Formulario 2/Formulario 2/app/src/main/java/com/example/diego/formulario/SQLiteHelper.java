@@ -88,6 +88,29 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return array;
     }
 
+    public int conseguirId(SQLiteDatabase db ,Dest destino){
+        int id;
+        Cursor cursor=db.rawQuery("SELECT id FROM Destinos WHERE zona='"
+                +destino.getZona()+"' AND continente='"
+                +destino.getContinente()+"' AND imagen='"
+                +destino.getImagen()+"' AND precio='"
+                +destino.getPrecio()+"'", null);
+
+        cursor.moveToFirst();
+        id=cursor.getInt(0);
+        Log.d("prueba",String.valueOf(id));
+
+        return id;
+
+    }
+    public void eliminarPedido(SQLiteDatabase db, int id, SQLiteHelper cliBDh){
+
+        db = cliBDh.getWritableDatabase();
+        String[] args = new String[]{String.valueOf(id)};
+        db.delete("Destinos","id=?",args);
+
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
 

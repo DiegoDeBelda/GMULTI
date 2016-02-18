@@ -102,7 +102,7 @@ public class PantallaLogin extends AppCompatActivity {
                 }
             }
         });
-
+/*
         Bundle bundle = getIntent().getExtras();
         String comprobar = bundle.getString("Usuario");
         if(comprobar.equals("Anonimo")==false){
@@ -110,7 +110,7 @@ public class PantallaLogin extends AppCompatActivity {
             IniciarSesion.setVisibility(View.INVISIBLE);
             mensajeErrorDos.setVisibility(View.VISIBLE);
         }
-
+*/
 
 
     }

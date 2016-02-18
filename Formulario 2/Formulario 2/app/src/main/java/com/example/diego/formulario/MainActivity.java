@@ -173,6 +173,13 @@ public class MainActivity extends AppCompatActivity {
                     bundle.putInt("IMAGEN", img);
                     bundle.putString("Usuario",nombreUsuario.getText().toString());
                     intent.putExtras(bundle);
+
+                    precioExtra=0;
+                    for(int i=0; i<objetosSpinner.length;i++){
+                        if(objetosSpinner[i].getZona().equals(Zon)){
+                            pr=Double.parseDouble(objetosSpinner[i].getPrecio());
+                        }
+                    }
                     startActivity(intent);
                 }
             }

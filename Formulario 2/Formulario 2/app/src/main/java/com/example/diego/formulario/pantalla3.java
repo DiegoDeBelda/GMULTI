@@ -4,16 +4,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by mati on 25/01/16.
@@ -34,6 +40,8 @@ public class pantalla3 extends Activity {
         ListAdapter adaptador = new ListAdapter(this);
         lista.setAdapter(adaptador);
 
+        lista.setLongClickable(true);
+        registerForContextMenu(lista);
 
 
 
@@ -43,6 +51,43 @@ public class pantalla3 extends Activity {
         SQLiteDatabase db = cliBDh.getReadableDatabase();
         return cliBDh.listar(db);
     }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo)
+    {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_lista_m_context, menu);
+    }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        Toast.makeText(pantalla3.this, ""+item.toString(), Toast.LENGTH_SHORT).show();//devuelve e nombre de la opcion
+        switch (item.getItemId()) {
+            case R.id.delete:
+
+                Toast.makeText(pantalla3.this, "demo borrar", Toast.LENGTH_SHORT).show();
+                //las variables de clase almacenan la listView
+                SQLiteHelper cliBDh = new SQLiteHelper(this, "DBClientes", null, 1);
+                SQLiteDatabase db = cliBDh.getReadableDatabase();
+                Dest destino = new Dest(Zon,Cont,img,String.valueOf(pr));
+                int id =cliBDh.conseguirId(db, destino);
+                Toast.makeText(pantalla3.this, "Esto "+id, Toast.LENGTH_SHORT).show();
+                db.close();
+                db = cliBDh.getWritableDatabase();
+                cliBDh.eliminarPedido(db,id,cliBDh);
+
+                return true;
+            case R.id.update:
+                Toast.makeText(pantalla3.this, "demo update", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+
+
 
     public class ListAdapter extends ArrayAdapter {
         Activity main;
